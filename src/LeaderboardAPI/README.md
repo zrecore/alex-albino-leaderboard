@@ -4,6 +4,14 @@ This Leaderboard Application is built upon .Net Core 1.1 (C#)
 Written by Alex Albino <webmaster@alexventure.com>
 
 
+## Environment setup
+
+During development, we must set the environment varialble ASPNETCORE_ENVIRONMENT to "Development"
+
+```
+export ASPNETCORE_ENVIRONMENT=Development
+```
+
 ## Database setup (SQLite3)
 
 Navigate to `src/LeaderboardAPI` and run the following:

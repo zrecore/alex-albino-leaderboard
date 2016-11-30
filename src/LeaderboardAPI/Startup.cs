@@ -74,12 +74,12 @@ namespace LeaderboardAPI
 
             app.UseCors("AllowFromAll");
             app.UseMvc();
-
             if (env.IsDevelopment())
             {
                 // Ensure default data is available during development.
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
+                    Console.WriteLine("Startup.cs::Configure() ...Seeding DB.");
                     serviceScope.ServiceProvider.GetService<LeaderboardAPIContext>().EnsureSeedData();
                 }
             }
