@@ -15,6 +15,9 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Http;
 
+using Microsoft.OData;
+
+
 namespace LeaderboardAPI
 {
     public class Startup
@@ -54,7 +57,7 @@ namespace LeaderboardAPI
             // Add CORS (Cross Origin Requests) headers
             // See https://manuel-rauber.com/2016/03/29/node-js-asp-net-core-1-0-a-usage-comparison-part-4-cross-origin-resource-sharing/
             // NOTE: For production, we must limit who can actually call these APIs!
-            
+            Console.WriteLine("Startup.cs::ConfigureServices() ...Adding CORS AllowFromAll policy.");
             services.AddCors(options => 
             {
                 options.AddPolicy("AllowFromAll",
@@ -64,6 +67,9 @@ namespace LeaderboardAPI
                 .AllowAnyOrigin()
                 .AllowCredentials());
             });
+
+            // OData
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +79,7 @@ namespace LeaderboardAPI
             loggerFactory.AddDebug();
 
             app.UseCors("AllowFromAll");
+            // app.UseOData("odata");
             app.UseMvc();
             if (env.IsDevelopment())
             {
