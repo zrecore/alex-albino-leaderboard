@@ -1,0 +1,26 @@
+.records-table {
+    width: 100%;
+    
+    margin: 0;
+    padding: 0;
+}
+
+.records-table thead tr {
+    
+    height: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.records-table td {
+    border: solid 1px #ddd;
+    margin: 0;
+}
+
+.records-table tbody, .records-table tr {
+    margin: 0;
+    padding: 0;
+}
+.records-table tbody tr:nth-child(even) {
+    background-color: #ddd;
+}

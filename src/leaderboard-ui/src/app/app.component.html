@@ -1,0 +1,22 @@
+<md-sidenav-layout>
+    <md-sidenav #sidenav mode="side">
+        Sidenav
+    </md-sidenav>
+    <md-toolbar color="primary">
+        <button md-button class="app-icon-button" (click)="sidenav.toggle">
+            <md-icon class="material-icons app-toolbar-menu">menu</md-icon>
+        </button>
+
+        {{title}}
+
+        <span class="app-toolbar-filler"></span>
+    </md-toolbar>
+
+    <div class="app-content">
+        <md-card>
+            <!-- List tabular data -->
+            <records-table></records-table>
+            <records-paginator></records-paginator>
+        </md-card>
+    </div>
+</md-sidenav-layout>
