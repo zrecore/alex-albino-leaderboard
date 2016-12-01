@@ -1,24 +1,22 @@
-<md-grid-list cols="6" rowHeight="100px" class="records-paginator">
+<md-grid-list cols="12" rowHeight="100px" class="records-paginator">
 
-    <md-grid-tile>
+    <md-grid-tile [colspan]="3">
         <md-input type="number" align="end" 
             (change)="this.paginationChange()" [(ngModel)]="this.rowsPerPage">
             <span md-suffix> per page.</span>
         </md-input>
     </md-grid-tile>
 
-    <md-grid-tile></md-grid-tile>
-    <md-grid-tile></md-grid-tile>
+    <md-grid-tile [colspan]="4"></md-grid-tile>
+    <md-grid-tile [colspan]="3"><em>Page {{this.pageIndex}} of {{this.pagesTotal}}</em></md-grid-tile>
 
-    <md-grid-tile><em>Page {{this.pageIndex}} of {{this.pagesTotal}}</em></md-grid-tile>
-
-    <md-grid-tile>
+    <md-grid-tile [colspan]="1">
         <button md-raised-button class="md-primary" (click)="onPagePrevious()">
             <md-icon class="md-24">chevron_left</md-icon>
         </button>
     </md-grid-tile>
 
-    <md-grid-tile>
+    <md-grid-tile [colspan]="1">
         <button md-raised-button class="md-primary" (click)="onPageNext()">
             <md-icon class="md-24">chevron_right</md-icon>
         </button>

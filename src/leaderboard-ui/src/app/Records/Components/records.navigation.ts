@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./records.navigation.css']
 })
 export class RecordsNavigationComponent {
-  data = [];
+  
 }

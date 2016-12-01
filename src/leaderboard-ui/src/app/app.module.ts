@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from '@angular/material';
+import { MomentModule } from 'angular2-moment';
 
 import { RecordsTableComponent, RecordsNavigationComponent, RecordsPaginatorComponent } from './Records/Components';
 import { RecordService } from './Records/Services/record.service'
@@ -22,6 +23,7 @@ import { RecordService } from './Records/Services/record.service'
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
+    MomentModule
   ],
   providers: [
     RecordService

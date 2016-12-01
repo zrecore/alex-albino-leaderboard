@@ -18,7 +18,7 @@
                 <td>{{record.teamName}}</td>
                 <td>{{record.userNames}}</td>
                 <td>{{record.score}}</td>
-                <td>{{record.scoreFirstSubmittedDate}}</td>
+                <td>{{record.scoreFirstSubmittedDate | amDateFormat: 'LL'}}</td>
                 <td>{{record.numSubmissions}}</td>
             </tr>
 

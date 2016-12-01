@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { Record } from '../Models/record';
 import { EmitterService } from '../../emitter.service';
-import { RecordService } from '../Services/record.service'
+import { RecordService } from '../Services/record.service';
 
 @Component({
   selector: 'records-table',
