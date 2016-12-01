@@ -31,6 +31,8 @@ export class RecordsPaginatorComponent implements OnInit, OnChanges {
     private pagination = {
         skip: 0,
         top: this.rowsPerPage,
+        filter: null,
+        orderby: null,
         pagesTotal: this.pagesTotal
     };
 

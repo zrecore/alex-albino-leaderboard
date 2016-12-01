@@ -5,32 +5,61 @@
     padding: 0;
 
     border: solid 1px #ddd;
+
+    font-family: "Roboto";
 }
 
 .records-table thead tr {
     
-    height: 2em;
+    height: 4.0rem;
     margin: 0;
     padding: 0;
+
+    color: #808080;
+    font-size: 1.1rem;
+
+    text-align: left;
+
+    
+}
+
+.records-table thead tr th {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    border-bottom: solid 1px #ddd;
+}
+
+.records-table thead tr th:hover {
+    background-color: #505050;
+    color: #fff;
 }
 
 
 .records-table td {
-    border: solid 1px #ddd;
     margin: 0;
 }
 
 .records-table tbody, .records-table tr {
     margin: 0;
     padding: 0;
+
+    cursor: pointer;
 }
 .records-table tbody tr:nth-child(even) {
-    background-color: #f0f0f0;
+    /*background-color: #f0f0f0;*/
 }
 
 .records-table tbody tr {
-    height: 1.6em;
+    height: 3.85rem;
+    color: #202020;
+    font-size: 1.0rem;
 }
+
+.records-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
 .records-table tbody tr td {
-    padding: 8px;
+    padding: 0.8rem 2.4rem 0.8rem 2.4rem;
+    border-bottom: solid 1px #ddd;
 }

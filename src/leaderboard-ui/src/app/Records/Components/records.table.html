@@ -1,14 +1,15 @@
-<div>
+<md-card>
+    <records-navigation></records-navigation>
     <table class="records-table" cellspacing="0">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Competition</th>
-                <th>Team</th>
-                <th>Users</th>
-                <th>Score</th>
-                <th>Date</th>
-                <th>Submissions</th>
+                <th (click)="onSort('ID')">ID</th>
+                <th (click)="onSort('CompetitionName')">Competition</th>
+                <th (click)="onSort('TeamName')">Team</th>
+                <th (click)="onSort('UserNames')">Users</th>
+                <th (click)="onSort('Score')">Score</th>
+                <th (click)="onSort('ScoreFirstSubmittedDate')">Date</th>
+                <th (click)="onSort('NumSubmissions')">Submissions</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +18,7 @@
                 <td>{{record.competitionName}}</td>
                 <td>{{record.teamName}}</td>
                 <td>{{record.userNames}}</td>
-                <td>{{record.score}}</td>
+                <td>{{record.score | number:'1.5-5'}}</td>
                 <td>{{record.scoreFirstSubmittedDate | amDateFormat: 'LL'}}</td>
                 <td>{{record.numSubmissions}}</td>
             </tr>
@@ -26,4 +27,4 @@
     </table>
 
     <records-paginator [paginatorId]="paginatorId"></records-paginator>
-</div>
+</md-card>

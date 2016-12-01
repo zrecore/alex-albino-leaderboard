@@ -45,6 +45,13 @@ export class RecordsTableComponent implements OnInit, OnChanges {
         // });
     }
 
+    onSort(column) {
+        console.log("Column sort is ", column);
+        this.pagination.orderby = column;
+
+        EmitterService.get(this.paginatorId).emit(this.pagination);
+    }
+
     loadRecords() {
         // Get all the records, include ODATA parameters
         console.log("loadRecords with pagination: ", this.pagination);
