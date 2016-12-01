@@ -1,15 +1,22 @@
-<md-card>
+<div>
     <records-navigation></records-navigation>
     <table class="records-table" cellspacing="0">
         <thead>
             <tr>
-                <th (click)="onSort('ID')">ID</th>
-                <th (click)="onSort('CompetitionName')">Competition</th>
-                <th (click)="onSort('TeamName')">Team</th>
-                <th (click)="onSort('UserNames')">Users</th>
-                <th (click)="onSort('Score')">Score</th>
-                <th (click)="onSort('ScoreFirstSubmittedDate')">Date</th>
-                <th (click)="onSort('NumSubmissions')">Submissions</th>
+                <th [ngClass]="{active: pagination.orderby == 'ID'}" 
+                    (click)="onSort('ID')"><md-icon>arrow_downward</md-icon>ID</th>
+                <th [ngClass]="{active: pagination.orderby == 'CompetitionName'}" 
+                    (click)="onSort('CompetitionName')"><md-icon>arrow_downward</md-icon>Competition</th>
+                <th [ngClass]="{active: pagination.orderby == 'TeamName'}" 
+                    (click)="onSort('TeamName')"><md-icon>arrow_downward</md-icon>Team</th>
+                <th [ngClass]="{active: pagination.orderby == 'UserNames'}" 
+                    (click)="onSort('UserNames')"><md-icon>arrow_downward</md-icon>Users</th>
+                <th [ngClass]="{active: pagination.orderby == 'Score'}" 
+                    (click)="onSort('Score')"><md-icon>arrow_downward</md-icon>Score</th>
+                <th [ngClass]="{active: pagination.orderby == 'ScoreFirstSubmittedDate'}" 
+                    (click)="onSort('ScoreFirstSubmittedDate')"><md-icon>arrow_downward</md-icon>Date</th>
+                <th [ngClass]="{active: pagination.orderby == 'NumSubmissions'}" 
+                    (click)="onSort('NumSubmissions')"><md-icon>arrow_downward</md-icon>Submissions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,4 +34,4 @@
     </table>
 
     <records-paginator [paginatorId]="paginatorId"></records-paginator>
-</md-card>
+</div>

@@ -12,14 +12,20 @@ import { RecordService } from '../Services/record.service';
   templateUrl: './records.table.html',
   styleUrls: ['./records.table.css']
 })
-export class RecordsTableComponent implements OnInit, OnChanges {
+export class RecordsTableComponent implements OnInit {
     
     private tableId = 'RECORD_COMPONENT_TABLE';
     private paginatorId = 'RECORD_COMPONENT_PAGINATOR';
     private records: Record[];
     private record: Record;
 
-    private pagination: any;
+    private pagination: any = {
+        skip: 0,
+        top: 0,
+        filter: null,
+        orderby: null,
+        pagesTotal: 0
+    };
 
     constructor(
         private recordService: RecordService
@@ -37,13 +43,13 @@ export class RecordsTableComponent implements OnInit, OnChanges {
         });
     }
 
-    ngOnChanges(changes:any) {
+    // ngOnChanges(changes:any) {
         // console.log("records.table ngOnChanges() %s", this.tableId);
         // // Listen to the 'list' emitted event so as to populate the model with the event payload
         // EmitterService.get(this.tableId).subscribe((records:Record[]) => { 
         //     this.loadRecords() 
         // });
-    }
+    // }
 
     onSort(column) {
         console.log("Column sort is ", column);

@@ -27,11 +27,29 @@
     padding-left: 2.4rem;
     padding-right: 2.4rem;
     border-bottom: solid 1px #ddd;
+    white-space: nowrap;
+}
+
+.records-table thead tr th md-icon{
+    display: none;
+    float: left;
+}
+
+.records-table thead tr th.active {
+    background-color: #d0d0d0;
+    color: #808080;
+}
+
+.records-table thead tr th.active md-icon {
+    display: inline-block;
 }
 
 .records-table thead tr th:hover {
-    background-color: #505050;
-    color: #fff;
+    background-color: #dfdfdf;
+    color: #808080;
+}
+.records-table thead tr th.active:hover {
+    background-color: #c0c0c0;
 }
 
 
