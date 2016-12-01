@@ -33,7 +33,7 @@ namespace LeaderboardAPI.Controllers
             if (top < 1) {
                 top = 25; // Default to 25 records if no top value is specified. We don't want to dump the entire DB!
             }
-            var result = _context.Records.Skip(skip).Take(top);
+            var result = _context.Records.Skip(0);
             
             if (!String.IsNullOrEmpty(orderby)) {
                 Console.WriteLine("...orderby is " + orderby);
@@ -106,6 +106,12 @@ namespace LeaderboardAPI.Controllers
                 }
             }
             
+            if (!skip.Equals(null)) {
+                result = result.Skip(skip);
+            }
+            if (!top.Equals(null)) {
+                result = result.Take(top);
+            }
             return result.ToList();
         }
 
