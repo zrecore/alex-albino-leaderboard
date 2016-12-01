@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
+import { URLSearchParams } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -11,8 +12,14 @@ import { RecordService } from '../Services/record.service'
   templateUrl: './records.table.html',
   styleUrls: ['./records.table.css']
 })
-export class RecordsTableComponent {
-    data = [];
+export class RecordsTableComponent implements OnInit, OnChanges {
+    
+    private tableId = 'RECORD_COMPONENT_TABLE';
+    private paginatorId = 'RECORD_COMPONENT_PAGINATOR';
+    private records: Record[];
+    private record: Record;
+
+    private pagination: any;
 
     constructor(
         private recordService: RecordService
@@ -20,43 +27,44 @@ export class RecordsTableComponent {
 
     ngOnInit() {
         // Load records
-        this.loadRecords();
+        // this.loadRecords();
+
+        console.log("records.table ngOnChanges() %s", this.paginatorId);
+        EmitterService.get(this.paginatorId).subscribe((pagination:any) => { 
+            console.log("subscribe event called");
+            this.pagination = pagination;
+            this.loadRecords();
+        });
     }
 
     ngOnChanges(changes:any) {
-        // Listen to the 'list' emitted event so as to populate the model with the event payload
-        EmitterService.get(this.listId).subscribe((records:Record[]) => { this.loadRecords() });
+        // console.log("records.table ngOnChanges() %s", this.tableId);
+        // // Listen to the 'list' emitted event so as to populate the model with the event payload
+        // EmitterService.get(this.tableId).subscribe((records:Record[]) => { 
+        //     this.loadRecords() 
+        // });
     }
 
-    @Input() records: Record[];
-    @Input() record: Record;
-    @Input() listId: string;
-    @Input() editId: string;
-
     loadRecords() {
-        // Get all the records
-        this.recordService.fetch()
-            .subscribe(records => this.records = records,
+        // Get all the records, include ODATA parameters
+        console.log("loadRecords with pagination: ", this.pagination);
+        let params: URLSearchParams = new URLSearchParams();
+
+        for (let key of Object.keys(this.pagination))
+        {
+            params.set(key, this.pagination[key]);
+        }
+
+        this.recordService.fetch(params)
+            .subscribe(
+                records => {
+                    console.log("Got records ***", records);
+                    this.records = records;
+                },
                 err => {
                     // Log errors
                     console.log(err);
                 });
     }
 
-    editRecord() {
-        // Emit the edit event
-        EmitterService.get(this.editId).emit(this.record);
-    }
-    deleteRecord(id:string) {
-        // Call remove() from RecordService to delete a record
-        this.recordService.remove(id).subscribe(
-            records => {
-                // Emit the list event
-                EmitterService.get(this.listId).emit(records);
-            },
-            err => {
-                // Log errors
-                console.log(err);
-            });
-    }
 }

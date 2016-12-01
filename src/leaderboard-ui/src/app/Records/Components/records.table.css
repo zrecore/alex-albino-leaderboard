@@ -3,6 +3,8 @@
     
     margin: 0;
     padding: 0;
+
+    border: solid 1px #ddd;
 }
 
 .records-table thead tr {
@@ -11,6 +13,7 @@
     margin: 0;
     padding: 0;
 }
+
 
 .records-table td {
     border: solid 1px #ddd;
@@ -22,5 +25,12 @@
     padding: 0;
 }
 .records-table tbody tr:nth-child(even) {
-    background-color: #ddd;
+    background-color: #f0f0f0;
+}
+
+.records-table tbody tr {
+    height: 1.6em;
+}
+.records-table tbody tr td {
+    padding: 8px;
 }

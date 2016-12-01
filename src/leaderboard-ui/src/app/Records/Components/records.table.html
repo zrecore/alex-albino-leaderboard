@@ -1,25 +1,29 @@
-<table class="records-table" cellspacing="0">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Competition</th>
-            <th>Team</th>
-            <th>Users</th>
-            <th>Score</th>
-            <th>Date</th>
-            <th>Submissions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let record of records">
-            <td>{{record.id}}</td>
-            <td>{{record.competitionName}}</td>
-            <td>{{record.teamName}}</td>
-            <td>{{record.userNames}}</td>
-            <td>{{record.score}}</td>
-            <td>{{record.scoreFirstSubmittedDate}}</td>
-            <td>{{record.numSubmissions}}</td>
-        </tr>
+<div>
+    <table class="records-table" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Competition</th>
+                <th>Team</th>
+                <th>Users</th>
+                <th>Score</th>
+                <th>Date</th>
+                <th>Submissions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of records">
+                <td>{{record.id}}</td>
+                <td>{{record.competitionName}}</td>
+                <td>{{record.teamName}}</td>
+                <td>{{record.userNames}}</td>
+                <td>{{record.score}}</td>
+                <td>{{record.scoreFirstSubmittedDate}}</td>
+                <td>{{record.numSubmissions}}</td>
+            </tr>
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+    <records-paginator [paginatorId]="paginatorId"></records-paginator>
+</div>

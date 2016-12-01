@@ -16,9 +16,9 @@ export class RecordService {
     private endpointURL = 'http://localhost:5000/api/records';
 
     // Fetch existing records...
-    fetch() : Observable<Record[]> {
+    fetch(params:any) : Observable<Record[]> {
         // ...using GET request
-        return this.http.get(this.endpointURL)
+        return this.http.get(this.endpointURL, {search: params})
             // ...and calling .json() on the response to return data
             .map((res:Response) => res.json())
             // ...handle any errors
